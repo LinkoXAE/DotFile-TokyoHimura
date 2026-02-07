@@ -1,0 +1,59 @@
+/* Цвета Tokyo Night */
+@define-color bg #1a1b26;
+@define-color fg #c0caf5;
+@define-color cyan #7dcfff;
+@define-color magenta #bb9af7;
+@define-color blue #7aa2f7;
+@define-color dark #15161e;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+/* Стилизация островков верхнего бара */
+#custom-appmenu, #cpu, #memory, #window, #workspaces, #network, #bluetooth, #pulseaudio, #clock, #tray, #custom-exit {
+    background: @bg;
+    color: @fg;
+    padding: 0 14px;
+    margin: 5px 3px;
+    border-radius: 12px;
+    border: 1px solid rgba(122, 162, 247, 0.2);
+}
+
+#custom-appmenu { color: @blue; font-size: 18px; }
+#clock { color: @cyan; font-weight: bold; }
+#workspaces { background: @dark; }
+#workspaces button { color: #414868; }
+#workspaces button.active { color: @magenta; }
+
+/* НИЖНИЙ ДОК */
+window#waybar.bottom-bar {
+    background: @bg;
+    border-radius: 24px;
+    border: 1px solid rgba(187, 154, 247, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+#custom-terminal, #custom-browser, #custom-files {
+    font-size: 24px;
+    padding: 0 12px;
+    color: @cyan;
+}
+
+#taskbar button {
+    padding: 2px 8px;
+    margin: 5px 2px;
+    border-radius: 12px;
+}
+
+#taskbar button.active {
+    background: rgba(122, 162, 247, 0.2);
+    border-bottom: 3px solid @magenta;
+}

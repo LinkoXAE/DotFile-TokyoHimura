@@ -1,0 +1,41 @@
+{
+    "name": "bottom-bar",
+    "layer": "top",
+    "position": "bottom",
+    "height": 52,
+    "margin-bottom": 10,
+    "margin-left": 380, // Ограничиваем длину
+    "margin-right": 380,
+    
+    "modules-center": [
+        "custom/terminal",
+        "custom/browser",
+        "custom/files",
+        "wlr/taskbar"
+    ],
+
+    "custom/terminal": {
+        "format": "",
+        "on-click": "kitty",
+        "tooltip": false
+    },
+    "custom/browser": {
+        "format": "󰈹",
+        "on-click": "firefox",
+        "tooltip": false
+    },
+    "custom/files": {
+        "format": "󰉋",
+        "on-click": "thunar",
+        "tooltip": false
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 28,
+        "spacing": 10,
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": ["kitty", "firefox", "thunar"]
+    }
+}

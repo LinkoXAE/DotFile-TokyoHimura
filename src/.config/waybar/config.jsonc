@@ -1,0 +1,91 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 38,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    "modules-left": [
+        "custom/appmenu",
+        "cpu",
+        "memory",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "clock",
+        "tray",
+        "custom/exit" // Кнопка выключений ML4W
+    ],
+
+    // Настройки модулей (совместимо с ML4W)
+    "hyprland/window": {
+        "format": "󱂬  {}",
+        "max-length": 30,
+        "separate-outputs": true,
+        "rewrite": {
+            "": "Hyprland"
+        }
+    },
+
+    "hyprland/workspaces": {
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "active": "󰮯",
+            "default": "󰊠",
+            "persistent": "󰊠"
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "custom/appmenu": {
+        "format": "󰣇",
+        "on-click": "rofi -show drun",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "tooltip-format": "{essid}",
+        "on-click": "~/.config/ml4w/settings/network.sh"
+    },
+
+    "bluetooth": {
+        "format": "󰂯",
+        "format-connected": "󰂱",
+        "on-click": "blueman-manager"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-icons": { "default": ["", "", ""] },
+        "on-click": "pavucontrol"
+    },
+
+    "clock": {
+        "format": "󱑂 {:%H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+
+    "custom/exit": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    }
+}

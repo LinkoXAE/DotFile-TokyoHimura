@@ -1,12 +1,36 @@
-# Привет, это скрипт для Linux пользевателей а точнее для тех кто сидит на Arch,CachyOS 
-# Тут собрано всё что не обходимо для того что бы начать пользеваться системой в кайф 
-
-# Изминяйте код под себя если хотите что то новое на данный момент всё что я делаю в актином действий 
-
-# HyprLand
-
 import time
-import request
-import customtkinter as ctk
+import sys
+from src import pakages
+from src import confsettings
+from src import app  
 
+class ProcessStarter:
+    def __init__(self):
+        self.ascii_intro = "Welcome To Installer TokyoHimura"
 
+    def start_sync(self):
+        print(self.ascii_intro)
+        time.sleep(1)
+
+        if pakages.select_lang(): 
+            print("\n[STEP 1] Packages installed successfully.")
+        else:
+            print("\n[ERROR] Package installation failed or cancelled.")
+            return
+
+        print("\n[STEP 2] Starting configuration setup...")
+        if confsettings.fileconfig():
+            print("[OK] Configs applied.")
+        else:
+            print("[ERROR] Failed to move config files.")
+            return
+
+        print("\n[STEP 3] Launching TokyoHimura Dashboard...")
+        self.launch_gui()
+
+    def launch_gui(self):
+        app.run_gui() 
+
+if __name__ == "__main__":
+    starter = ProcessStarter()
+    starter.start_sync()
