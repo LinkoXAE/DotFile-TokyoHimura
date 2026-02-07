@@ -1,0 +1,3 @@
+config.tar.xz
+.venv/
+__pycache__/
